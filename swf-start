@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# maven check 
+if [ -z `type -P mvn` ];
+then
+  echo " mvn not installed.Please install maven ."
+  exit
+fi
+
+
+groupId=""
+while [ -z $groupId ];
+do
+  echo -n "groupId: "
+  read groupId
+  echo "groupId = $groupId"
+done
+
+artifactId=""
+while [ -z $arthifactId ];
+do
+  echo -n "arthifactId: "
+  read artifactId
+  echo "artifactId = $artifactId"
+done
+
+mvn archetype:create -DgroupId=$groupId -DartifactId=$artifactId 
+
+pushd $artifactId
+  rm -rf pom.xml
+  curl -L -O http://raw.github.com/tottokug/swf-quickstart/pom.xml
+  sed -i "s/__GROUP_ID__/$groupId/g"  pom.xml
+  sed -i "s/__ARTIFACT_ID__/$artifactId/g" pom.xml
+popd
