@@ -7,7 +7,6 @@ then
   exit
 fi
 
-
 groupId=""
 while [ -z $groupId ];
 do
@@ -33,10 +32,10 @@ then
 fi
 
 mvn archetype:create -DgroupId=$groupId -DartifactId=$artifactId
-
+exit
 pushd $artifactId
   rm -rf pom.xml
-  curl -L -O http://raw.github.com/tottokug/swf-quickstart/pom.xml
+  curl -L -O https://raw.github.com/tottokug/swf-quickstart/master/pom.xml
   sed -i "s/##GROUP_ID##/$groupId/g"  pom.xml
   sed -i "s/##ARTIFACT_ID##/$artifactId/g" pom.xml
   sed -i "s/##VERSION##/$version/g" pom.xml
