@@ -9,7 +9,6 @@ else
   echo mvn check ok
 fi
 
-groupId=
 while [ -z $groupId ];
 do
   printf "groupId: "
@@ -17,14 +16,13 @@ do
   printf "groupId = $groupId""\n"
 done
 
-artifactId=
 while [ -z $artifactId ];
 do
   printf "artifactId: "
   read artifactId
   printf "artifactId = $artifactId\n"
 done
-version=
+
 printf "version[1.0.0-SNAPSHOT]: "
 read version
 
