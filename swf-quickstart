@@ -32,7 +32,6 @@ read version
 if [ -z $version ];
 then
   version="1.0.0-SNAPSHOT" 
-exit
 fi
 exit
 
