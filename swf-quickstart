@@ -25,8 +25,8 @@ do
   printf "artifactId = $artifactId\n"
 done
 version=""
-exit
 printf "version[1.0.0-SNAPSHOT]: "
+exit
 read version
 if [ -z $version ];
 then
