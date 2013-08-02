@@ -9,7 +9,7 @@ else
   echo mvn check ok
 fi
 
-groupId=""
+groupId=
 while [ -z $groupId ];
 do
   printf "groupId: "
@@ -17,14 +17,14 @@ do
   printf "groupId = $groupId""\n"
 done
 
-artifactId=""
+artifactId=
 while [ -z $artifactId ];
 do
   printf "artifactId: "
   read artifactId
   printf "artifactId = $artifactId\n"
 done
-version=""
+version=
 printf "version[1.0.0-SNAPSHOT]: "
 read version
 
@@ -33,7 +33,6 @@ if [ -z $version ];
 then
   version="1.0.0-SNAPSHOT" 
 fi
-
 mvn archetype:create -DgroupId=$groupId -DartifactId=$artifactId
 exit
 pushd $artifactId
