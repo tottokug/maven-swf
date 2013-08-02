@@ -28,7 +28,7 @@ done
 version=""
 printf "version[1.0.0-SNAPSHOT]: "
 read version
-if [ -z $version ]
+if [ -z $version ];
 then
   version="1.0.0-SNAPSHOT" 
 fi
