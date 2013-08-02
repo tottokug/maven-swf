@@ -26,15 +26,23 @@ do
 done
 version=""
 printf "version[1.0.0-SNAPSHOT]: "
-exit
 read version
+exit
 if [ -z $version ];
 then
+exit
   version="1.0.0-SNAPSHOT" 
+exit
 fi
+exit
 
 mvn archetype:create -DgroupId=$groupId -DartifactId=$artifactId
+exit
 pushd $artifactId
+exit
   rm -rf pom.xml
+exit
   curl -L  https://raw.github.com/tottokug/swf-quickstart/master/pom.xml | perl -pe "s/\#\#GROUP_ID\#\#/$groupId/g" |perl -pe "s/##ARTIFACT_ID##/$artifactId/g" |perl -pe "s/##VERSION##/$version/g" > pom.xml
+exit
 popd
+exit
