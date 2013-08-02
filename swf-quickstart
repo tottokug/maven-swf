@@ -33,7 +33,6 @@ if [ -z $version ];
 then
   version="1.0.0-SNAPSHOT" 
 fi
-exit
 
 mvn archetype:create -DgroupId=$groupId -DartifactId=$artifactId
 exit
