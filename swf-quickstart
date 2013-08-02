@@ -5,38 +5,39 @@ if [ -z `type -P mvn` ];
 then
   echo " mvn not installed.Please install maven ."
   exit
+else
+  echo mvn check ok
 fi
 
 groupId=""
 while [ -z $groupId ];
 do
-  echo -n "groupId: "
+  printf "groupId: "
   read groupId
-  echo "groupId = $groupId"
+  printf "groupId = $groupId\n"
 done
 
 artifactId=""
 while [ -z $artifactId ];
 do
-  echo -n "artifactId: "
+  printf "artifactId: "
   read artifactId
-  echo "artifactId = $artifactId"
+  printf "artifactId = $artifactId\n"
 done
 
 version=""
-echo -n "version[1.0.0-SNAPSHOT]: "
+printf "version[1.0.0-SNAPSHOT]: "
 read version
-if [ -z $version ];
+if [ -z $version ]
 then
   version="1.0.0-SNAPSHOT" 
 fi
 
 mvn archetype:create -DgroupId=$groupId -DartifactId=$artifactId
-exit
 pushd $artifactId
   rm -rf pom.xml
-  curl -L -O https://raw.github.com/tottokug/swf-quickstart/master/pom.xml
-  sed -i "s/##GROUP_ID##/$groupId/g"  pom.xml
-  sed -i "s/##ARTIFACT_ID##/$artifactId/g" pom.xml
-  sed -i "s/##VERSION##/$version/g" pom.xml
+  curl -L  https://raw.github.com/tottokug/swf-quickstart/master/pom.xml | perl -pe "s/\#\#GROUP_ID\#\#/$groupId/g" |perl -pe "s/##ARTIFACT_ID##/$artifactId/g" |perl -pe "s/##VERSION##/$version/g" > pom.xml
+#  sed -i "s/##GROUP_ID##/$groupId/g"  pom.xml
+#  sed -i "s/##ARTIFACT_ID##/$artifactId/g" pom.xml
+#  sed -i "s/##VERSION##/$version/g" pom.xml
 popd
