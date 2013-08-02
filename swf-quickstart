@@ -12,6 +12,8 @@ fi
 
 printf "groupId[swf-quickstart]: "
 read groupId
+echo "groupID = $groupId" 
+
 if [ -z $groupId ];
 then
   groupId=swf-quickstart
