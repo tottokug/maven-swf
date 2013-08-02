@@ -24,7 +24,6 @@ do
   read artifactId
   printf "artifactId = $artifactId\n"
 done
-
 version=""
 printf "version[1.0.0-SNAPSHOT]: "
 read version
