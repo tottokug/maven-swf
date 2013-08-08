@@ -10,7 +10,7 @@
     <repository>
       <id>maven.tottokug.com</id>
       <name>tottokug maven Repository</name>
-      <url>https://raw.github.org.mushikago/maven/master</url>
+      <url>https://raw.github.org/tottokug/maven/master</url>
     </repository>
   </repositories>
   <properties>
