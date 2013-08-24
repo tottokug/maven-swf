@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # maven check 
 if [ -z `type -P mvn` ];
 then
